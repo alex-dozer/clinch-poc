@@ -3,7 +3,6 @@ use proc_macro2::TokenStream as TokenStream2;
 use syn::parse::{Parse, ParseStream, Result};
 use syn::{Ident, Token, braced};
 
-use crate::lunch::index::operations::OperationIndex;
 use crate::lunch::index::pipeline::PipelineIndex;
 use crate::lunch::parse::clinch::ClinchBlock;
 use crate::lunch::parse::operations::OperationsBlock;
@@ -14,6 +13,7 @@ use crate::lunch::validate::signals::validate_signals;
 
 // -------------------------------------------------------------------------
 // Top-level blocks
+// Important file
 // -------------------------------------------------------------------------
 
 pub struct MetaBlock {
@@ -29,6 +29,12 @@ pub struct PipelineAst {
 }
 
 impl PipelineAst {
+    /*
+
+    Very important method
+
+     */
+
     pub fn validate_and_index(&self) -> Result<PipelineIndex> {
         // 1. Parse already happened
 

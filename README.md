@@ -37,6 +37,8 @@ Pipeline-ish thing. No normalizing or anything. `lstan_ops.rs` is the ops file. 
 
 Just the macro housing crate. It is where `lunch!` resides. Originally had more macros planned but got rid of them. So, it's just `lunch!` which is large enough.
 
+The `meta` section isn't done. It would be simple enough, I'm just not 100% on exactly what to do with it yet. I do think it needs to exist. I could lower it into a function that attaches itself to the context at the end. Unsure....
+
 ---
 
 ## Pipeline Architecture

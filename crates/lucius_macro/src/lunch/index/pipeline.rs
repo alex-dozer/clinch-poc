@@ -11,7 +11,7 @@ use crate::lunch::{
         signals::{FamilyInfo, SignalIndex, build_signal_index},
     },
     parse::pipeline::PipelineAst,
-}; // adjust paths if needed, add signals block later.
+};
 
 #[derive(Debug)]
 pub struct PipelineIndex {
@@ -39,36 +39,6 @@ pub struct PipelineMeta {
 */
 
 impl PipelineIndex {
-    // pub fn from_ast(ast: &PipelineAst) -> Result<Self> {
-    //     let ops = match &ast.operations {
-    //         Some(ops) => ops,
-    //         None => {
-    //             return Err(Error::new(
-    //                 Span::call_site(),
-    //                 "missing `operations` block in pipeline definition",
-    //             ));
-    //         } // no ops is allowed (for now)
-    //     };
-
-    //     let signals_block = match &ast.signals {
-    //         Some(s) => s,
-    //         None => {
-    //             return Err(Error::new(
-    //                 Span::call_site(),
-    //                 "missing `operations` block in pipeline definition",
-    //             ));
-    //         }
-    //     };
-
-    //     let operation_index = build_operation_index(ops)?;
-    //     let signal_index = build_signal_index(signals_block)?;
-
-    //     Ok(Self {
-    //         operation_index,
-    //         signal_index,
-    //     })
-    // }
-
     pub fn from_operations(ast: &PipelineAst) -> Result<Self> {
         let ops = match &ast.operations {
             Some(ops) => ops,

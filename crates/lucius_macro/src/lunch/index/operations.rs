@@ -7,11 +7,6 @@ use crate::{
     lunch::parse::{operations::OperationsBlock, pipeline::PipelineAst, signals::SignalsBlock},
 };
 
-// #[derive(Debug)]
-// pub struct PipelineIndex {
-//     pub operations: HashMap<String, OperationInfo>,
-// }
-
 #[derive(Debug)]
 pub struct OperationIndex {
     pub index: HashMap<String, OperationInfo>,
@@ -81,8 +76,8 @@ pub fn build_operation_index(
                     steps.insert(
                         step.clone(),
                         StepInfo {
-                            binding: output,             // ← `moop`
-                            luop_fn: Some(step.clone()), // ← function name
+                            binding: output,            // ← `moop`
+                            ops_fn: Some(step.clone()), // ← function name
                         },
                     );
 

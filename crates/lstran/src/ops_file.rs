@@ -2,6 +2,13 @@
 
 Just a file of ops to illustrate we can re-export into the component ops file.
 
+Add ops if you want. I initially required luop and lurv (lucius operation and lucius return value)
+for validation.
+
+Operations need references to Artifacts as an argument. Return values should be able to be whatever.
+
+Ideally don't do things like spin up threads in this. It also needs to be sync.
+
 */
 
 use common::data_objs::{Artifact, LuciusContext};

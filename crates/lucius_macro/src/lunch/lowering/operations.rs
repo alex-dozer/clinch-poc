@@ -36,7 +36,7 @@ pub fn lower_step(
     ops_path: &syn::Path,
 ) -> TokenStream2 {
     let result_ident = format_ident!("__op_{}_step_{}", op_name, step_name);
-    let fn_name = step_info.luop_fn.as_deref().unwrap_or(step_name);
+    let fn_name = step_info.ops_fn.as_deref().unwrap_or(step_name);
 
     let fn_ident = format_ident!("{}", fn_name);
 
