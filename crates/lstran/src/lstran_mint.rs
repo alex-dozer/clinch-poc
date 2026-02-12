@@ -4,7 +4,10 @@ mint file for minting a pipeline component. can be any name but necessary for th
 
 */
 
+//needed import since these need to be in context for the pipeline
 use common::data_objs::{Artifact, LuciusContext};
+
+//macro just needs to be in context
 use lucius_macro::lunch;
 
 lunch! {
@@ -12,6 +15,14 @@ lunch! {
     component = lstran
 
     {
+
+    /*
+
+    Nothing happening with this right now. And I'm okay with it.
+
+    basically just have meta and opening and closing braces and it should validate.
+
+     */
 
     meta {
         name    = "structural_probe_poc"
@@ -21,6 +32,17 @@ lunch! {
     }
 
     operations {
+
+        /*
+
+        More validation needs to happen here. Like if i rename inspect_magic to inspooct_moogic
+        I won't trip rust analyzer. This happened at one time because I tied existence checks to a
+        macro called luop. I removed luop and i haven't added it. I will in the future.
+
+        It is verbose by design, my thoughts being that if I was tired I only have to
+        read the one line to get provenance for an op or signal. Could be annoying..
+
+         */
 
         operation magic {
             do inspect_magic   output magic_probe
@@ -33,6 +55,14 @@ lunch! {
     signals {
 
         family format {
+
+
+            /*
+
+            Signals use basic rust syntax for logic. I kept "when" since I
+            felt it helped the idea that there is no "else".
+
+             */
 
             signal pdf_magic {
                 derive from operation.magic.inspect_magic
@@ -75,6 +105,20 @@ lunch! {
     }
 
     clinch {
+
+        /*
+
+        runs and emits ideally would be enums in the end though
+        I don't know if that is more complexity for not much gain.
+
+        I'm brutally unaware of how comfortable this would be to
+        people who don't code.
+
+
+        I *think* it will be easy enough. But, I could just be way
+        wrong....
+
+         */
 
         // --- PDF handling ---
         when signal.format.pdf_magic {
