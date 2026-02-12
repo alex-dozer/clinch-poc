@@ -25,7 +25,7 @@ impl LuciusContext {
             tags: Vec::new(),
             emits: Vec::new(),
             deferred: Vec::new(),
-            scores: std::collections::HashMap::new(),
+            scores: HashMap::new(),
         }
     }
 }

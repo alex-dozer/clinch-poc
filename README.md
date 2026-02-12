@@ -23,6 +23,22 @@ No dynamic dispatch.
 
 ---
 
+## Crates
+
+### Common
+
+Just data objects necessary for `lunch!`.
+
+### lstran
+
+Pipeline-ish thing. No normalizing or anything. `lstan_ops.rs` is the ops file. It corresponds to the component that you list in `lunch!`. So if you do `component = moopy` you'd need a `moopy_ops.rs` file. Can be re-exports or whatever. The `main.rs` just runs the pipeline. The `ops` file is necessary to register operations. Haven't tested wasm yet, but I don't *foresee* issues. Though there could be issues.
+
+### lucius_macro
+
+Just the macro housing crate. It is where `lunch!` resides. Originally had more macros planned but got rid of them. So, it's just `lunch!` which is large enough.
+
+---
+
 ## Pipeline Architecture
 
 The system is intentionally phase-separated:
@@ -120,6 +136,8 @@ The Rust module system acts as the operation registry.
 
 If an operation function does not exist, the Rust compiler will emit an error during macro expansion.
 
+Haven't tested on WASM yet but foresee no issues.
+
 ---
 
 ## Running the POC
@@ -153,6 +171,10 @@ Additional architectural documentation:
 
 These documents explain the internal structure and reasoning behind the phase separation.
 
+Future code will have a lot more comments. I just felt it was time to show it because there is always "1 more thing".
+
+NOTE: You'll see `kw` places, that stands for keyword.
+
 ---
 
 ## Future Work
@@ -162,7 +184,9 @@ These documents explain the internal structure and reasoning behind the phase se
 - Strengthen diagnostics and error spans
 - Add configurable ops path support
 - Expand multi-artifact demonstration cases
+- Need to work on better operation validation, or validation in general.
+- Enforce enums for actions and emits. Though that may be cumbersome users. Unsure. Every macro adds complexity and I wonder if I'm already teetering at the edge of reasonable.
 
 ---
 
-This POC is intended as a foundation for further evolution of deterministic telemetry and structural analysis pipelines.
+This POC is intended as a foundation for further evolution of deterministic telemetry and structural analysis pipelines.  It exists as proving that coding clinch would work.
