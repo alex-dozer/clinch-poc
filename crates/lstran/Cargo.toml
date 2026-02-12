@@ -1,0 +1,8 @@
+[package]
+name = "lstran"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+lucius_macro = { path = "../lucius_macro" }
+common = { path = "../common" }
