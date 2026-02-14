@@ -42,6 +42,20 @@ lunch! {
         It is verbose by design, my thoughts being that if I was tired I only have to
         read the one line to get provenance for an op or signal. Could be annoying..
 
+
+        I wanted to add another comment expressing the future because I didn't think of doing it before.
+        In the design docs i was doing things like "select x from bytestream" which was interesting but I couldn't
+        conceptually fit it neatly. I feel this approach is simpler, cleaner and easier to understand.
+
+
+        in the future I will likely do something like:
+
+        do inspect_magic   output magic_probe { offset = 100 }
+
+        where the stuff in the curly braces is params for the inspect_magic operation.
+
+
+
          */
 
         operation magic {
@@ -61,6 +75,13 @@ lunch! {
 
             Signals use basic rust syntax for logic. I kept "when" since I
             felt it helped the idea that there is no "else".
+
+            I also decided to keep standard operands since I felt it was cleaner (and lessened work for me).
+
+            There is a lot of things I learned that go along with execution order. Also, I feel it is easy
+            enough to understand the base line of what ==, !=, >, <, or other simple Rust operations (like .contains)
+            are that it would work.
+
 
              */
 
